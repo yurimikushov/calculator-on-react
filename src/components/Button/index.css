@@ -6,14 +6,32 @@
     border: 1px solid rgba(158, 158, 158, .2) !important;
 }
 
+/* top-operators */
+
 .top-operators-bg {
     background-color: rgb(232, 232, 232, .2);
 }
 
-.numbers-bg {
-    background-color: white;
+.top-operators-bg:hover {
+    background-color: rgb(180, 180, 180, .2);
 }
+
+/* numbers */
+
+.numbers-bg {
+    background-color: rgb(255, 255, 255);
+}
+
+.numbers-bg:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+/* right-side-operators */
 
 .right-side-operators-bg {
     background-color: rgb(255, 204, 0);
+}
+
+.right-side-operators-bg:hover {
+    background-color: rgb(240, 204, 0);
 }
