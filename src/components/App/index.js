@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.css'
+import Tablo from './../Tablo'
 import Button from './../Button'
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="calculator">
-        <div className="tablo">{this.state.tabloValues.join('')}</div>
+        <Tablo tabloValues={this.state.tabloValues} />
         <div className="buttons">
           <div className="buttons-line">
             <Button title="C" onClick={this.clear} />
