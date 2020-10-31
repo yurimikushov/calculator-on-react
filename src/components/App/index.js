@@ -79,6 +79,10 @@ class App extends React.Component {
   }
 
   _displayInputValue(value) {
+    if (this.state.input[0] == 'Error') {
+      this.state.input = []
+    }
+
     if (value == '×') {
       value = '*'
     } else if (value == '÷') {
