@@ -9,6 +9,7 @@ class App extends React.Component {
     this.clear = this.clear.bind(this)
     this.delete = this.delete.bind(this)
     this.display = this.display.bind(this)
+    this.calc = this.calc.bind(this)
   }
 
   clear() {
@@ -23,6 +24,22 @@ class App extends React.Component {
   display(e) {
     this.state.tabloValues.push(e.target.innerText)
     this.setState({ tabloValues: this.state.tabloValues })
+  }
+
+  calc() {
+    let mathExpression = this.state.tabloValues.join('')
+    mathExpression = mathExpression.replace('×', '*')
+    mathExpression = mathExpression.replace('÷', '/')
+
+    let result
+
+    try {
+      result = eval(mathExpression)
+    } catch (e) {
+      result = 'Error'
+    }
+
+    this.setState({ tabloValues: [result] })
   }
 
   render() {
@@ -57,7 +74,7 @@ class App extends React.Component {
           <div className="buttons-line">
             <Button title="0" onClick={this.display} width="200px" />
             <Button title="," onClick={this.display} />
-            <Button title="=" onClick={this.display} />
+            <Button title="=" onClick={this.calc} />
           </div>
         </div>
       </div>
