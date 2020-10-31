@@ -49,32 +49,33 @@ class App extends React.Component {
         <div className="buttons">
           <div className="buttons-line">
             <Button title="C" onClick={this.clear} />
-            <Button title="±" onClick={this.display} />
-            <Button title="÷" onClick={this.display} />
+            <Button title="(" onClick={this.display} />
+            <Button title=")" onClick={this.display} />
             <Button title="DEL" onClick={this.delete} />
           </div>
           <div className="buttons-line">
             <Button title="7" onClick={this.display} />
             <Button title="8" onClick={this.display} />
             <Button title="9" onClick={this.display} />
-            <Button title="-" onClick={this.display} />
+            <Button title="÷" onClick={this.display} />
           </div>
           <div className="buttons-line">
             <Button title="4" onClick={this.display} />
             <Button title="5" onClick={this.display} />
             <Button title="6" onClick={this.display} />
-            <Button title="×" onClick={this.display} />
+            <Button title="-" onClick={this.display} />
           </div>
           <div className="buttons-line">
             <Button title="1" onClick={this.display} />
             <Button title="2" onClick={this.display} />
             <Button title="3" onClick={this.display} />
-            <Button title="+" onClick={this.display} />
+            <Button title="×" onClick={this.display} />
           </div>
           <div className="buttons-line">
-            <Button title="0" onClick={this.display} width="200px" />
+            <Button title="0" onClick={this.display} />
             <Button title="," onClick={this.display} />
             <Button title="=" onClick={this.calc} />
+            <Button title="+" onClick={this.display} />
           </div>
         </div>
       </div>

@@ -1,9 +1,8 @@
-function Button(props) {
-  const width = props.width ? props.width : '100px'
-  const height = props.height ? props.height : '100px'
+import './index.css'
 
+function Button(props) {
   return (
-    <button onClick={props.onClick} style={{ width: width, height: height }}>
+    <button className="calc-button" onClick={props.onClick}>
       {props.title}
     </button>
   )
