@@ -5,7 +5,7 @@ function Button(props) {
 
   if (props.isTopOperators) className += ' top-operators-bg'
   if (props.isNumber) className += ' numbers-bg'
-  if (props.isSideOperators) className += ' side-operators-bg'
+  if (props.isSideOperators) className += ' right-side-operators-bg'
 
   return (
     <button className={className} onClick={props.onClick}>
