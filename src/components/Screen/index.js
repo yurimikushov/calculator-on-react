@@ -3,7 +3,8 @@ import './index.css'
 function Screen(props) {
   return (
     <div className="screen">
-      <input type="text" readOnly value={props.inputValues.join('')} />
+      <span>{props.result}</span>
+      <input type="text" value={props.input.join('')} placeholder="0" readOnly />
     </div>
   )
 }
