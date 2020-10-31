@@ -100,9 +100,9 @@ class App extends React.Component {
       lastValue == '-' ||
       lastValue == '+'
 
-    const needDisplayResult = !isOperator && this.state.input.length > 1
+    const needToDisplayResult = !isOperator && this.state.input.length > 1
 
-    this.setState({ result: needDisplayResult ? this._calc() : '' })
+    this.setState({ result: needToDisplayResult ? this._calc() : '' })
   }
 
   _calc() {
