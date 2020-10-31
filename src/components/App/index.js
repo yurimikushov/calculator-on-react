@@ -22,19 +22,23 @@ class App extends React.Component {
   }
 
   display(e) {
-    this.state.tabloValues.push(e.target.innerText)
+    let value = e.target.innerText
+
+    if (value == '×') {
+      value = '*'
+    } else if (value == '÷') {
+      value = '/'
+    }
+
+    this.state.tabloValues.push(value)
     this.setState({ tabloValues: this.state.tabloValues })
   }
 
   calc() {
-    let mathExpression = this.state.tabloValues.join('')
-    mathExpression = mathExpression.replace('×', '*')
-    mathExpression = mathExpression.replace('÷', '/')
-
     let result
 
     try {
-      result = eval(mathExpression)
+      result = eval(this.state.tabloValues.join(''))
     } catch (e) {
       result = 'Error'
     }
