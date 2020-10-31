@@ -48,34 +48,34 @@ class App extends React.Component {
         <Tablo tabloValues={this.state.tabloValues} />
         <div className="buttons">
           <div className="buttons-line">
-            <Button title="C" onClick={this.clear} />
-            <Button title="(" onClick={this.display} />
-            <Button title=")" onClick={this.display} />
-            <Button title="DEL" onClick={this.delete} />
+            <Button title="C" onClick={this.clear} isTopOperators={true} />
+            <Button title="(" onClick={this.display} isTopOperators={true} />
+            <Button title=")" onClick={this.display} isTopOperators={true} />
+            <Button title="DEL" onClick={this.delete} isTopOperators={true} />
           </div>
           <div className="buttons-line">
-            <Button title="7" onClick={this.display} />
-            <Button title="8" onClick={this.display} />
-            <Button title="9" onClick={this.display} />
-            <Button title="÷" onClick={this.display} />
+            <Button title="7" onClick={this.display} isNumber={true} />
+            <Button title="8" onClick={this.display} isNumber={true} />
+            <Button title="9" onClick={this.display} isNumber={true} />
+            <Button title="÷" onClick={this.display} isSideOperators={true} />
           </div>
           <div className="buttons-line">
-            <Button title="4" onClick={this.display} />
-            <Button title="5" onClick={this.display} />
-            <Button title="6" onClick={this.display} />
-            <Button title="-" onClick={this.display} />
+            <Button title="4" onClick={this.display} isNumber={true} />
+            <Button title="5" onClick={this.display} isNumber={true} />
+            <Button title="6" onClick={this.display} isNumber={true} />
+            <Button title="-" onClick={this.display} isSideOperators={true} />
           </div>
           <div className="buttons-line">
-            <Button title="1" onClick={this.display} />
-            <Button title="2" onClick={this.display} />
-            <Button title="3" onClick={this.display} />
-            <Button title="×" onClick={this.display} />
+            <Button title="1" onClick={this.display} isNumber={true} />
+            <Button title="2" onClick={this.display} isNumber={true} />
+            <Button title="3" onClick={this.display} isNumber={true} />
+            <Button title="×" onClick={this.display} isSideOperators={true} />
           </div>
           <div className="buttons-line">
-            <Button title="0" onClick={this.display} />
-            <Button title="," onClick={this.display} />
-            <Button title="=" onClick={this.calc} />
-            <Button title="+" onClick={this.display} />
+            <Button title="0" onClick={this.display} isNumber={true} />
+            <Button title="." onClick={this.display} isNumber={true} />
+            <Button title="=" onClick={this.calc} isNumber={true} />
+            <Button title="+" onClick={this.display} isSideOperators={true} />
           </div>
         </div>
       </div>

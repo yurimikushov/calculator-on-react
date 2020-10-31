@@ -1,4 +1,19 @@
 .calc-button {
     width: 100px;
-    height: 100px;
+    height: 75px;
+    outline: none;    
+    font-size: 25px;
+    border: 1px solid rgba(158, 158, 158, .2) !important;
+}
+
+.top-operators-bg {
+    background-color: rgb(232, 232, 232, .2);
+}
+
+.numbers-bg {
+    background-color: white;
+}
+
+.side-operators-bg {
+    background-color: #ff7e10;
 }

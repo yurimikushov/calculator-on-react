@@ -1,8 +1,14 @@
 import './index.css'
 
 function Button(props) {
+  let className = 'calc-button'
+
+  if (props.isTopOperators) className += ' top-operators-bg'
+  if (props.isNumber) className += ' numbers-bg'
+  if (props.isSideOperators) className += ' side-operators-bg'
+
   return (
-    <button className="calc-button" onClick={props.onClick}>
+    <button className={className} onClick={props.onClick}>
       {props.title}
     </button>
   )
