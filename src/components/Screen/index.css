@@ -1,11 +1,11 @@
-.tablo {
+.screen {
     position: relative;
     height: 150px;
     width: 100%;
     background-color: white;
 }
 
-.tablo input {
+.screen input {
     position: absolute;
     bottom: 0;
     border: 0;

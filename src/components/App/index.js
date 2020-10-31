@@ -1,11 +1,11 @@
 import React from 'react'
 import './index.css'
-import Tablo from './../Tablo'
+import Screen from '../Screen'
 import Button from './../Button'
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { tabloValues: [] }
+    this.state = { inputValues: [] }
     this.clear = this.clear.bind(this)
     this.delete = this.delete.bind(this)
     this.display = this.display.bind(this)
@@ -13,12 +13,12 @@ class App extends React.Component {
   }
 
   clear() {
-    this.setState({ tabloValues: [] })
+    this.setState({ inputValues: [] })
   }
 
   delete() {
-    this.state.tabloValues.pop()
-    this.setState({ tabloValues: this.state.tabloValues })
+    this.state.inputValues.pop()
+    this.setState({ inputValues: this.state.inputValues })
   }
 
   display(e) {
@@ -30,26 +30,26 @@ class App extends React.Component {
       value = '/'
     }
 
-    this.state.tabloValues.push(value)
-    this.setState({ tabloValues: this.state.tabloValues })
+    this.state.inputValues.push(value)
+    this.setState({ inputValues: this.state.inputValues })
   }
 
   calc() {
     let result
 
     try {
-      result = eval(this.state.tabloValues.join(''))
+      result = eval(this.state.inputValues.join(''))
     } catch (e) {
       result = 'Error'
     }
 
-    this.setState({ tabloValues: [result] })
+    this.setState({ inputValues: [result] })
   }
 
   render() {
     return (
       <div className="calculator">
-        <Tablo tabloValues={this.state.tabloValues} />
+        <Screen inputValues={this.state.inputValues} />
         <div className="buttons">
           <div className="buttons-line">
             <Button title="C" onClick={this.clear} isTopOperators={true} />
