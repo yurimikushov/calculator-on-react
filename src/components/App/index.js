@@ -48,25 +48,25 @@ class App extends React.Component {
             <Button title="7" onClick={this.displayValue} isNumber={true} />
             <Button title="8" onClick={this.displayValue} isNumber={true} />
             <Button title="9" onClick={this.displayValue} isNumber={true} />
-            <Button title="÷" onClick={this.displayValue} isSideOperators={true} />
+            <Button title="÷" onClick={this.displayValue} isRightSideOperators={true} />
           </div>
           <div className="buttons-line">
             <Button title="4" onClick={this.displayValue} isNumber={true} />
             <Button title="5" onClick={this.displayValue} isNumber={true} />
             <Button title="6" onClick={this.displayValue} isNumber={true} />
-            <Button title="-" onClick={this.displayValue} isSideOperators={true} />
+            <Button title="-" onClick={this.displayValue} isRightSideOperators={true} />
           </div>
           <div className="buttons-line">
             <Button title="1" onClick={this.displayValue} isNumber={true} />
             <Button title="2" onClick={this.displayValue} isNumber={true} />
             <Button title="3" onClick={this.displayValue} isNumber={true} />
-            <Button title="×" onClick={this.displayValue} isSideOperators={true} />
+            <Button title="×" onClick={this.displayValue} isRightSideOperators={true} />
           </div>
           <div className="buttons-line">
             <Button title="0" onClick={this.displayValue} isNumber={true} />
             <Button title="." onClick={this.displayValue} isNumber={true} />
             <Button title="=" onClick={this.displayResult} isNumber={true} />
-            <Button title="+" onClick={this.displayValue} isSideOperators={true} />
+            <Button title="+" onClick={this.displayValue} isRightSideOperators={true} />
           </div>
         </div>
       </div>
