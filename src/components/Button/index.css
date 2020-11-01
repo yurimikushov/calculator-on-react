@@ -11,15 +11,15 @@
     opacity: 0.95;
 }
 
-.top-operators-bg {
+.top-operators {
     background-color: var(--top-operator-button-bg-color);
 }
 
-.numbers-bg {
+.numbers {
     background-color: var(--num-button-bg-color);
 }
 
-.right-side-operators-bg {
+.right-side-operators {
     background-color: var(--right-side-operator-button-bg-color);
     color: #fff;
 }
