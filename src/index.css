@@ -1,5 +1,12 @@
 :root {
-  --bg-color: rgb(244, 244, 244);
+  --bg-color: #f4f4f4;
+  --calc-bg-color: #000;
+  --calc-screen-bg-color: #fff;
+  --top-operator-button-bg-color: #f8f8f8;
+  --num-button-bg-color: #fff;
+  --right-side-operator-button-bg-color:#f27200;
+  --border-color: #9e9e9e33;
+  --font-color: #000;
 }
 
 html, body {

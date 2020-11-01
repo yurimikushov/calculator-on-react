@@ -37,7 +37,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="calculator">
-        <Screen result={this.state.result} input={this.state.input} />
+        <Screen result={this.state.result} input={this.state.input.join('')} />
         <div className="buttons">
           <div className="buttons-line">
             <Button title="C" onClick={this.clear} isTopOperators={true} />
