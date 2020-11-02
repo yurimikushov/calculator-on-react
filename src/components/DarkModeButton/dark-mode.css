@@ -1,0 +1,8 @@
+.dark-mode {
+    --bg-color: #1f2022;
+    --calc-bg-color: #fff;
+    --calc-screen-bg-color: #262626;
+    --top-operator-button-bg-color: #424242;
+    --num-button-bg-color: #262626;
+    --font-color: #fff;
+}

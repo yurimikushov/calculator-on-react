@@ -1,4 +1,9 @@
-:root {
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
   --bg-color: #f4f4f4;
   --calc-bg-color: #000;
   --calc-screen-bg-color: #fff;
@@ -6,10 +11,6 @@
   --num-button-bg-color: #fff;
   --right-side-operator-button-bg-color:#f27200;
   --font-color: #000;
-}
 
-html, body {
-  margin: 0;
-  padding: 0;
   background-color: var(--bg-color);
 }
