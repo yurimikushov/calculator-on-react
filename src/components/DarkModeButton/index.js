@@ -20,13 +20,13 @@ class DarkModeButton extends React.Component {
   render() {
     return (
       <button className="dark-mode-button" onClick={this.onClick}>
-        {this.state.themeName == 'light' ? '☀️' : '🌙'}
+        {this.state.themeName === 'light' ? '☀️' : '🌙'}
       </button>
     )
   }
 
   _setTheme(themeName) {
-    if (!themeName || themeName == 'light') {
+    if (!themeName || themeName === 'light') {
       document.querySelector('body').classList.remove('dark-mode')
     } else {
       document.querySelector('body').classList.add('dark-mode')
@@ -40,7 +40,7 @@ class DarkModeButton extends React.Component {
     let newThemeName
 
     if (this._themeNameLocalStorage) {
-      newThemeName = this._themeNameLocalStorage == 'light' ? 'dark' : 'light'
+      newThemeName = this._themeNameLocalStorage === 'light' ? 'dark' : 'light'
     } else {
       newThemeName = 'dark'
     }

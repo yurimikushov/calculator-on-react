@@ -75,35 +75,38 @@ class App extends React.Component {
   }
 
   _deleteLastValue() {
-    this.state.input.pop()
-    this.setState({ input: this.state.input })
+    let input = this.state.input
+    input.pop()
+    this.setState({ input: input })
   }
 
   _displayInputValue(value) {
-    if (this.state.input[0] == 'Error') {
-      this.state.input = []
+    let input = this.state.input
+
+    if (input[0] === 'Error') {
+      input = []
     }
 
-    if (value == '×') {
+    if (value === '×') {
       value = '*'
-    } else if (value == '÷') {
+    } else if (value === '÷') {
       value = '/'
     }
 
-    this.state.input.push(value)
-    this.setState({ input: this.state.input })
+    input.push(value)
+    this.setState({ input: input })
   }
 
   _displayPreliminaryResult() {
     const lastValue = this.state.input[this.state.input.length - 1]
 
     const isOperator =
-      lastValue == '(' ||
-      lastValue == ')' ||
-      lastValue == '/' ||
-      lastValue == '*' ||
-      lastValue == '-' ||
-      lastValue == '+'
+      lastValue === '(' ||
+      lastValue === ')' ||
+      lastValue === '/' ||
+      lastValue === '*' ||
+      lastValue === '-' ||
+      lastValue === '+'
 
     const needToDisplayResult = !isOperator && this.state.input.length > 1
 
