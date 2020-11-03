@@ -5,19 +5,23 @@ import './dark-mode.css'
 class DarkModeButton extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { themeName: 'light' }
+    this.state = { themeName: this._themeNameInLocalStorage }
     this.onClick = this.onClick.bind(this)
   }
 
-  componentDidMount() {
-    this._setTheme(this._themeNameLocalStorage)
-  }
-
   onClick() {
-    this._setTheme(this._newThemeName)
+    this.setState({ themeName: this._newThemeName })
   }
 
   render() {
+    this._themeNameInLocalStorage = this.state.themeName
+
+    if (this.state.themeName === 'light') {
+      document.querySelector('body').classList.remove('dark-mode')
+    } else {
+      document.querySelector('body').classList.add('dark-mode')
+    }
+
     return (
       <button className="dark-mode-button" onClick={this.onClick}>
         {this.state.themeName === 'light' ? '☀️' : '🌙'}
@@ -25,34 +29,15 @@ class DarkModeButton extends React.Component {
     )
   }
 
-  _setTheme(themeName) {
-    if (!themeName || themeName === 'light') {
-      document.querySelector('body').classList.remove('dark-mode')
-    } else {
-      document.querySelector('body').classList.add('dark-mode')
-    }
-
-    this._themeNameLocalStorage = themeName
-    this.setState({ themeName: themeName })
-  }
-
   get _newThemeName() {
-    let newThemeName
-
-    if (this._themeNameLocalStorage) {
-      newThemeName = this._themeNameLocalStorage === 'light' ? 'dark' : 'light'
-    } else {
-      newThemeName = 'dark'
-    }
-
-    return newThemeName
+    return this._themeNameInLocalStorage === 'light' ? 'dark' : 'light'
   }
 
-  get _themeNameLocalStorage() {
-    return localStorage.getItem('themeName')
+  get _themeNameInLocalStorage() {
+    return localStorage.getItem('themeName') || 'light'
   }
 
-  set _themeNameLocalStorage(themeName) {
+  set _themeNameInLocalStorage(themeName) {
     localStorage.setItem('themeName', themeName)
   }
 }
