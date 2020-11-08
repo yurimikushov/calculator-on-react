@@ -1,7 +1,10 @@
 {
   "name": "calculator-on-react",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.1.0",
+  "description": "It's the simple calculator on React",
+  "author": "Yuri Mikushov",
+  "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -35,5 +38,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurimikushov/calculator-on-react.git"
   }
 }
