@@ -14,7 +14,7 @@
     width: calc(100% - 20px);
     padding: 10px 10px 0 10px;
     text-align: right;
-    font-size: 30px;
+    font-size: 1rem;
     color: var(--font-color);
     opacity: 0.6;
 }
@@ -27,7 +27,7 @@
     width: calc(100% - 20px);
     padding: 0 10px;
     text-align: right;
-    font-size: 50px;
+    font-size: 1.4rem;
     background-color: inherit;
     color: var(--font-color);
 }
