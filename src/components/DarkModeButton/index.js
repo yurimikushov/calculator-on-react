@@ -1,45 +1,42 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './index.css'
 import './dark-mode.css'
 
-class DarkModeButton extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { themeName: this._themeNameInLocalStorage }
-    this.onClick = this.onClick.bind(this)
-  }
-
-  onClick() {
-    this.setState({ themeName: this._newThemeName })
-  }
-
-  render() {
-    this._themeNameInLocalStorage = this.state.themeName
-
-    if (this.state.themeName === 'light') {
-      document.querySelector('body').classList.remove('dark-mode')
-    } else {
-      document.querySelector('body').classList.add('dark-mode')
-    }
-
-    return (
-      <button className="dark-mode-button" onClick={this.onClick}>
-        {this.state.themeName === 'light' ? '☀️' : '🌙'}
-      </button>
-    )
-  }
-
-  get _newThemeName() {
-    return this._themeNameInLocalStorage === 'light' ? 'dark' : 'light'
-  }
-
-  get _themeNameInLocalStorage() {
-    return localStorage.getItem('themeName') || 'light'
-  }
-
-  set _themeNameInLocalStorage(themeName) {
-    localStorage.setItem('themeName', themeName)
-  }
+const THEME_NAME = {
+  LIGHT: 'light',
+  DARK: 'dark',
 }
 
-export default DarkModeButton
+export default function DarkModeButton() {
+  const [themeName, setThemeName] = useState(getThemeNameFromLocalStorage())
+
+  useEffect(() => {
+    setThemeNameInLocalStorage(themeName)
+  }, [themeName])
+
+  function onClick() {
+    setThemeName(themeName === THEME_NAME.LIGHT ? THEME_NAME.DARK : THEME_NAME.LIGHT)
+  }
+
+  function setThemeNameInLocalStorage(themeName) {
+    localStorage.setItem('themeName', themeName)
+  }
+
+  function getThemeNameFromLocalStorage() {
+    return localStorage.getItem('themeName') || THEME_NAME.LIGHT
+  }
+
+  const DARK_MODE_CLASS_NAME = 'dark-mode'
+
+  if (themeName === THEME_NAME.LIGHT) {
+    document.body.classList.remove(DARK_MODE_CLASS_NAME)
+  } else {
+    document.body.classList.add(DARK_MODE_CLASS_NAME)
+  }
+
+  return (
+    <button className="dark-mode-button" onClick={onClick}>
+      {themeName === THEME_NAME.LIGHT ? '☀️' : '🌙'}
+    </button>
+  )
+}
