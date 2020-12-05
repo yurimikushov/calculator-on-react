@@ -1,6 +1,6 @@
 import './index.css'
 
-function Button(props) {
+export default function Button(props) {
   let className = 'calc-button'
 
   if (props.isTopOperators) className += ' top-operators'
@@ -13,5 +13,3 @@ function Button(props) {
     </button>
   )
 }
-
-export default Button

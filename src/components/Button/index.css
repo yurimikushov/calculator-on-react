@@ -1,32 +1,32 @@
 .calc-button {
-    width: 90px;
-    height: 75px;
-    border: 0;
-    outline: none;    
-    font-size: 1rem;
-    color: var(--font-color);
+  width: 90px;
+  height: 75px;
+  border: 0;
+  outline: none;    
+  font-size: 1rem;
+  color: var(--font-color);
 }
 
 .calc-button:hover {
-    opacity: 0.95;
+  opacity: 0.95;
 }
 
 .top-operators {
-    background-color: var(--top-operator-button-bg-color);
+  background-color: var(--top-operator-button-bg-color);
 }
 
 .numbers {
-    background-color: var(--num-button-bg-color);
+  background-color: var(--num-button-bg-color);
 }
 
 .right-side-operators {
-    background-color: var(--right-side-operator-button-bg-color);
-    color: #fff;
+  background-color: var(--right-side-operator-button-bg-color);
+  color: #fff;
 }
 
 @media screen and (max-width: 720px) {
-    .calc-button {
-        width: 25%;
-        font-size: .9rem;
-    }
+  .calc-button {
+    width: 25%;
+    font-size: .9rem;
+  }
 }

@@ -1,7 +1,7 @@
 import './index.css'
 import DarkModeButton from './../DarkModeButton'
 
-function Screen(props) {
+export default function Screen(props) {
   return (
     <div className="screen">
       <DarkModeButton />
@@ -10,5 +10,3 @@ function Screen(props) {
     </div>
   )
 }
-
-export default Screen

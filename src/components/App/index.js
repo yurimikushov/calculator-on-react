@@ -3,7 +3,7 @@ import './index.css'
 import Screen from './../Screen'
 import Button from './../Button'
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = { result: '', input: [] }
@@ -125,5 +125,3 @@ class App extends React.Component {
     return result
   }
 }
-
-export default App

@@ -1,12 +1,12 @@
 .dark-mode-button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: none;
-    outline: 0;
-    background-color: transparent;
-    font-size: .75rem;
-    padding-top: 10px;
-    padding-left: 10px;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  outline: 0;
+  background-color: transparent;
+  font-size: .75rem;
+  padding-top: 10px;
+  padding-left: 10px;
+  z-index: 1;
 }
