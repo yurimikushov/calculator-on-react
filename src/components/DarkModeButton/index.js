@@ -35,7 +35,7 @@ export default function DarkModeButton() {
   }
 
   return (
-    <button className="dark-mode-button" onClick={onClick}>
+    <button className='dark-mode-button' onClick={onClick}>
       {themeName === THEME_NAME.LIGHT ? '☀️' : '🌙'}
     </button>
   )

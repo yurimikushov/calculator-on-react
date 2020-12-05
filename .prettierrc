@@ -1,9 +1,9 @@
 {
-    "useTabs": false,
-    "tabWidth": 2,
-    "printWidth": 90,
-    "singleQuote": true,
-    "jsxBracketSameLine": false,
-    "jsxSingleQuote": false,
-    "semi": false
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 90,
+  "singleQuote": true,
+  "jsxBracketSameLine": false,
+  "jsxSingleQuote": true,
+  "semi": false
 }

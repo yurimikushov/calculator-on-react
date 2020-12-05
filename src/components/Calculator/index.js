@@ -66,38 +66,38 @@ export default function Calculator() {
   }
 
   return (
-    <div className="calculator">
+    <div className='calculator'>
       <Screen previewResult={previewResult} result={result.join('')} />
-      <div className="buttons">
-        <div className="buttons-line">
-          <Button title="C" onClick={deleteAllEnteredValues} isTopOperators={true} />
-          <Button title="(" onClick={showEnteredValue} isTopOperators={true} />
-          <Button title=")" onClick={showEnteredValue} isTopOperators={true} />
-          <Button title="DEL" onClick={deleteLastEnteredValue} isTopOperators={true} />
+      <div className='buttons'>
+        <div className='buttons-line'>
+          <Button title='C' onClick={deleteAllEnteredValues} isTopOperators={true} />
+          <Button title='(' onClick={showEnteredValue} isTopOperators={true} />
+          <Button title=')' onClick={showEnteredValue} isTopOperators={true} />
+          <Button title='DEL' onClick={deleteLastEnteredValue} isTopOperators={true} />
         </div>
-        <div className="buttons-line">
-          <Button title="7" onClick={showEnteredValue} isNumber={true} />
-          <Button title="8" onClick={showEnteredValue} isNumber={true} />
-          <Button title="9" onClick={showEnteredValue} isNumber={true} />
-          <Button title="÷" onClick={showEnteredValue} isRightSideOperators={true} />
+        <div className='buttons-line'>
+          <Button title='7' onClick={showEnteredValue} isNumber={true} />
+          <Button title='8' onClick={showEnteredValue} isNumber={true} />
+          <Button title='9' onClick={showEnteredValue} isNumber={true} />
+          <Button title='÷' onClick={showEnteredValue} isRightSideOperators={true} />
         </div>
-        <div className="buttons-line">
-          <Button title="4" onClick={showEnteredValue} isNumber={true} />
-          <Button title="5" onClick={showEnteredValue} isNumber={true} />
-          <Button title="6" onClick={showEnteredValue} isNumber={true} />
-          <Button title="-" onClick={showEnteredValue} isRightSideOperators={true} />
+        <div className='buttons-line'>
+          <Button title='4' onClick={showEnteredValue} isNumber={true} />
+          <Button title='5' onClick={showEnteredValue} isNumber={true} />
+          <Button title='6' onClick={showEnteredValue} isNumber={true} />
+          <Button title='-' onClick={showEnteredValue} isRightSideOperators={true} />
         </div>
-        <div className="buttons-line">
-          <Button title="1" onClick={showEnteredValue} isNumber={true} />
-          <Button title="2" onClick={showEnteredValue} isNumber={true} />
-          <Button title="3" onClick={showEnteredValue} isNumber={true} />
-          <Button title="×" onClick={showEnteredValue} isRightSideOperators={true} />
+        <div className='buttons-line'>
+          <Button title='1' onClick={showEnteredValue} isNumber={true} />
+          <Button title='2' onClick={showEnteredValue} isNumber={true} />
+          <Button title='3' onClick={showEnteredValue} isNumber={true} />
+          <Button title='×' onClick={showEnteredValue} isRightSideOperators={true} />
         </div>
-        <div className="buttons-line">
-          <Button title="0" onClick={showEnteredValue} isNumber={true} />
-          <Button title="." onClick={showEnteredValue} isNumber={true} />
-          <Button title="=" onClick={showResult} isNumber={true} />
-          <Button title="+" onClick={showEnteredValue} isRightSideOperators={true} />
+        <div className='buttons-line'>
+          <Button title='0' onClick={showEnteredValue} isNumber={true} />
+          <Button title='.' onClick={showEnteredValue} isNumber={true} />
+          <Button title='=' onClick={showResult} isNumber={true} />
+          <Button title='+' onClick={showEnteredValue} isRightSideOperators={true} />
         </div>
       </div>
     </div>
