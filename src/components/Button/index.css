@@ -1,4 +1,4 @@
-.calc-button {
+.button {
   width: 90px;
   height: 75px;
   border: 0;
@@ -7,25 +7,25 @@
   color: var(--font-color);
 }
 
-.calc-button:hover {
+.button:hover {
   opacity: 0.95;
 }
 
-.top-operators {
+.button_top-operators {
   background-color: var(--top-operator-button-bg-color);
 }
 
-.numbers {
+.button_numbers {
   background-color: var(--num-button-bg-color);
 }
 
-.right-side-operators {
+.button_right-side-operators {
   background-color: var(--right-side-operator-button-bg-color);
   color: #fff;
 }
 
 @media screen and (max-width: 720px) {
-  .calc-button {
+  .button {
     width: 25%;
     font-size: .9rem;
   }

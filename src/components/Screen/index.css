@@ -6,7 +6,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.screen span {
+.screen__preview-result {
   position: absolute;
   top: 0;
   border: 0;
@@ -19,7 +19,7 @@
   opacity: 0.6;
 }
 
-.screen input {
+.screen__result {
   position: absolute;
   bottom: 0;
   border: 0;

@@ -5,8 +5,14 @@ export default function Screen(props) {
   return (
     <div className='screen'>
       <DarkModeButton />
-      <span>{props.previewResult}</span>
-      <input type='text' value={props.result} placeholder='0' readOnly />
+      <span className='screen__preview-result'>{props.previewResult}</span>
+      <input
+        className='screen__result'
+        type='text'
+        value={props.result}
+        placeholder='0'
+        readOnly
+      />
     </div>
   )
 }

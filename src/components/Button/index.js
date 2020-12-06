@@ -2,10 +2,10 @@ import classNames from 'classnames'
 import './index.css'
 
 export default function Button(props) {
-  let className = classNames('calc-button', {
-    'top-operators': props.isTopOperators,
-    numbers: props.isNumber,
-    'right-side-operators': props.isRightSideOperators,
+  let className = classNames('button', {
+    'button_top-operators': props.isTopOperators,
+    'button_numbers': props.isNumber,
+    'button_right-side-operators': props.isRightSideOperators,
   })
 
   return (
