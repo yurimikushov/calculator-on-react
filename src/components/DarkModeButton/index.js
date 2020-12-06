@@ -14,7 +14,7 @@ export default function DarkModeButton() {
     setThemeNameInLocalStorage(themeName)
   }, [themeName])
 
-  function onClick() {
+  function toggleTheme() {
     setThemeName(themeName === THEME_NAME.LIGHT ? THEME_NAME.DARK : THEME_NAME.LIGHT)
   }
 
@@ -35,7 +35,7 @@ export default function DarkModeButton() {
   }
 
   return (
-    <button className='dark-mode-button' onClick={onClick}>
+    <button className='dark-mode-button' onClick={toggleTheme}>
       {themeName === THEME_NAME.LIGHT ? '☀️' : '🌙'}
     </button>
   )
