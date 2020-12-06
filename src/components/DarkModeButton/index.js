@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
-import './dark-mode.css'
 
 const THEME_NAME = {
   LIGHT: 'light',
@@ -26,16 +25,16 @@ export default function DarkModeButton() {
     return localStorage.getItem('themeName') || THEME_NAME.LIGHT
   }
 
-  const DARK_MODE_CLASS_NAME = 'dark-mode'
+  const DARK_MODE_CLASS_NAME = 'theme_dark'
 
-  if (themeName === THEME_NAME.LIGHT) {
-    document.body.classList.remove(DARK_MODE_CLASS_NAME)
-  } else {
+  if (themeName === THEME_NAME.DARK) {
     document.body.classList.add(DARK_MODE_CLASS_NAME)
+  } else {
+    document.body.classList.remove(DARK_MODE_CLASS_NAME)
   }
 
   return (
-    <button className='dark-mode-button' onClick={toggleTheme}>
+    <button className='dark-mode-button position_top-left' onClick={toggleTheme}>
       {themeName === THEME_NAME.LIGHT ? '☀️' : '🌙'}
     </button>
   )

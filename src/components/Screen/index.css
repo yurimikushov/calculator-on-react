@@ -7,12 +7,10 @@
 }
 
 .screen__preview-result {
-  position: absolute;
-  top: 0;
+  width: calc(100% - 60px);
+  padding: 10px 10px 0 50px;
   border: 0;
   outline: none;
-  width: calc(100% - 20px);
-  padding: 10px 10px 0 10px;
   text-align: right;
   font-size: 1rem;
   color: var(--font-color);
@@ -20,12 +18,10 @@
 }
 
 .screen__result {
-  position: absolute;
-  bottom: 0;
-  border: 0;
-  outline: none;
   width: calc(100% - 20px);
   padding: 0 10px;
+  border: 0;
+  outline: none;
   text-align: right;
   font-size: 1.4rem;
   background-color: inherit;
