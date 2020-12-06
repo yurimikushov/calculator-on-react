@@ -1,11 +1,12 @@
+import classNames from 'classnames'
 import './index.css'
 
 export default function Button(props) {
-  let className = 'calc-button'
-
-  if (props.isTopOperators) className += ' top-operators'
-  if (props.isNumber) className += ' numbers'
-  if (props.isRightSideOperators) className += ' right-side-operators'
+  let className = classNames('calc-button', {
+    'top-operators': props.isTopOperators,
+    numbers: props.isNumber,
+    'right-side-operators': props.isRightSideOperators,
+  })
 
   return (
     <button className={className} onClick={props.onClick}>
