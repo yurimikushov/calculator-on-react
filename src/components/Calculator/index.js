@@ -1,28 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './index.css'
 import Screen from './../Screen'
 import Button from './../Button'
 
 export default function Calculator() {
   const [previewResult, setPreviewResult] = useState('')
-  const [result, setResult] = useState([])
+  const [enteredValues, setEnteredValues] = useState([])
   const ERROR_RESULT = 'Error'
 
-  useEffect(() => showPreviewResult())
-
-  function deleteAllEnteredValues() {
-    setPreviewResult('')
-    setResult([])
-  }
-
   function showEnteredValue(e) {
-    let enteredValue = fixEnteredValue(e.target.innerText)
+    const enteredValue = fixEnteredValue(e.target.innerText)
+    const updatedEnteredValues =
+      enteredValues[0] !== ERROR_RESULT
+        ? enteredValues.concat(enteredValue)
+        : [enteredValue]
 
-    if (result[0] !== ERROR_RESULT) {
-      setResult(result.concat(enteredValue))
-    } else {
-      setResult([enteredValue])
-    }
+    setPreviewResult(calcPreviewResult(updatedEnteredValues))
+    setEnteredValues(updatedEnteredValues)
 
     function fixEnteredValue(value) {
       if (value === '×') value = '*'
@@ -32,34 +26,40 @@ export default function Calculator() {
     }
   }
 
-  function showPreviewResult() {
-    const lastValue = result[result.length - 1]
-
-    const isOperator =
-      lastValue === '(' ||
-      lastValue === ')' ||
-      lastValue === '/' ||
-      lastValue === '*' ||
-      lastValue === '-' ||
-      lastValue === '+'
-
-    const needToShowResult = !isOperator && result.length > 1
-
-    setPreviewResult(needToShowResult ? calcResult() : '')
-  }
-
   function showResult() {
     setPreviewResult('')
-    setResult([calcResult()])
+    setEnteredValues([calcResult(enteredValues)])
   }
 
   function deleteLastEnteredValue() {
-    setResult(result.slice(0, result.length - 1))
+    const updatedEnteredValues = enteredValues.slice(0, enteredValues.length - 1)
+
+    setPreviewResult(calcPreviewResult(updatedEnteredValues))
+    setEnteredValues(updatedEnteredValues)
   }
 
-  function calcResult() {
+  function clearEnteredValues() {
+    setPreviewResult('')
+    setEnteredValues([])
+  }
+
+  function calcPreviewResult(enteredValues) {
+    const lastEnteredValue = enteredValues[enteredValues.length - 1]
+
+    const isOperator =
+      lastEnteredValue === '(' ||
+      lastEnteredValue === ')' ||
+      lastEnteredValue === '/' ||
+      lastEnteredValue === '*' ||
+      lastEnteredValue === '-' ||
+      lastEnteredValue === '+'
+
+    return !isOperator ? calcResult(enteredValues) : ''
+  }
+
+  function calcResult(enteredValues) {
     try {
-      return eval(result.join(''))
+      return eval(enteredValues.join(''))
     } catch (e) {
       return ERROR_RESULT
     }
@@ -67,10 +67,10 @@ export default function Calculator() {
 
   return (
     <div className='calculator'>
-      <Screen previewResult={previewResult} result={result.join('')} />
+      <Screen previewResult={previewResult} result={enteredValues.join('')} />
       <div className='buttons'>
         <div className='buttons-line'>
-          <Button title='C' onClick={deleteAllEnteredValues} isTopOperators={true} />
+          <Button title='C' onClick={clearEnteredValues} isTopOperators={true} />
           <Button title='(' onClick={showEnteredValue} isTopOperators={true} />
           <Button title=')' onClick={showEnteredValue} isTopOperators={true} />
           <Button title='DEL' onClick={deleteLastEnteredValue} isTopOperators={true} />
