@@ -46,7 +46,7 @@ export default function Calculator() {
   function calcPreviewResult(enteredValues) {
     const lastEnteredValue = enteredValues[enteredValues.length - 1]
 
-    const isOperator =
+    const isOperatorLastEnteredValue =
       lastEnteredValue === '(' ||
       lastEnteredValue === ')' ||
       lastEnteredValue === '/' ||
@@ -54,7 +54,7 @@ export default function Calculator() {
       lastEnteredValue === '-' ||
       lastEnteredValue === '+'
 
-    return !isOperator ? calcResult(enteredValues) : ''
+    return !isOperatorLastEnteredValue ? calcResult(enteredValues) : ''
   }
 
   function calcResult(enteredValues) {
