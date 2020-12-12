@@ -9,7 +9,7 @@ export default function Button(props) {
   })
 
   return (
-    <button className={className} onClick={props.onClick}>
+    <button className={className} onClick={(e) => props.onClick(e.target.innerText)}>
       {props.title}
     </button>
   )

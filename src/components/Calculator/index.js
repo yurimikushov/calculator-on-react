@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './index.css'
 import Screen from './../Screen'
 import Button from './../Button'
@@ -8,8 +8,41 @@ export default function Calculator() {
   const [enteredValues, setEnteredValues] = useState([])
   const ERROR_RESULT = 'Error'
 
-  function showEnteredValue(e) {
-    const enteredValue = fixEnteredValue(e.target.innerText)
+  useEffect(() => {
+    const keyDownHandler = (e) => keyboardEntryHandler(e.key)
+    window.addEventListener('keydown', keyDownHandler)
+    return () => window.removeEventListener('keydown', keyDownHandler)
+  })
+
+  function keyboardEntryHandler(key) {
+    const isNumber = (key) => '0' <= key && key <= '9'
+    const isSeparator = (key) => key === ',' || key === '.'
+    const isMathOperator = (key) =>
+      key === '+' ||
+      key === '-' ||
+      key === '*' ||
+      key === '/' ||
+      key === '(' ||
+      key === ')'
+    const isAssignmentOperator = (key) => key === '=' || key === 'Enter'
+    const isDeleteOperator = (key) => key === 'Backspace'
+    const isClearOperator = (key) => key === 'Escape'
+
+    if (isNumber(key) || isMathOperator(key)) {
+      showEnteredValue(key)
+    } else if (isSeparator(key)) {
+      showEnteredValue('.')
+    } else if (isAssignmentOperator(key)) {
+      showResult()
+    } else if (isDeleteOperator(key)) {
+      deleteLastEnteredValue()
+    } else if (isClearOperator(key)) {
+      clearEnteredValues()
+    }
+  }
+
+  function showEnteredValue(value) {
+    const enteredValue = fixEnteredValue(value)
     const updatedEnteredValues =
       enteredValues[0] !== ERROR_RESULT
         ? enteredValues.concat(enteredValue)
