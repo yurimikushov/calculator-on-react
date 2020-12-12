@@ -3,35 +3,47 @@ import './index.css'
 import Screen from './../Screen'
 import Button from './../Button'
 
+const MATH_OPERATORS = {
+  ADDITION: '+',
+  SUBSRTACTION: '-',
+  MULTIPLICATION: '×',
+  DIVISION: '÷',
+  OPENING_PARENTHESIS: '(',
+  CLOSING_PARENTHESIS: ')',
+}
+
+const OPERATORS = {
+  ASSIGNMENT: '=',
+  SEPARATOR: '.',
+  CLEAR: 'C',
+  DELETE: 'DEL',
+}
+
+const ERROR_RESULT = 'Error'
+
+const isNumber = (value) => '0' <= value && value <= '9'
+const isSeparator = (value) => value === OPERATORS.SEPARATOR || value === ','
+const isMathOperator = (value) => Object.values(MATH_OPERATORS).includes(value)
+const isAssignmentOperator = (value) =>
+  value === OPERATORS.ASSIGNMENT || value === 'Enter'
+const isDeleteOperator = (value) => value === 'Backspace'
+const isClearOperator = (value) => value === 'Escape'
+
 export default function Calculator() {
   const [previewResult, setPreviewResult] = useState('')
   const [enteredValues, setEnteredValues] = useState([])
-  const ERROR_RESULT = 'Error'
 
   useEffect(() => {
     const keyDownHandler = (e) => keyboardEntryHandler(e.key)
     window.addEventListener('keydown', keyDownHandler)
     return () => window.removeEventListener('keydown', keyDownHandler)
-  })
+  }, [])
 
   function keyboardEntryHandler(key) {
-    const isNumber = (key) => '0' <= key && key <= '9'
-    const isSeparator = (key) => key === ',' || key === '.'
-    const isMathOperator = (key) =>
-      key === '+' ||
-      key === '-' ||
-      key === '*' ||
-      key === '/' ||
-      key === '(' ||
-      key === ')'
-    const isAssignmentOperator = (key) => key === '=' || key === 'Enter'
-    const isDeleteOperator = (key) => key === 'Backspace'
-    const isClearOperator = (key) => key === 'Escape'
-
     if (isNumber(key) || isMathOperator(key)) {
       showEnteredValue(key)
     } else if (isSeparator(key)) {
-      showEnteredValue('.')
+      showEnteredValue(OPERATORS.SEPARATOR)
     } else if (isAssignmentOperator(key)) {
       showResult()
     } else if (isDeleteOperator(key)) {
@@ -41,8 +53,7 @@ export default function Calculator() {
     }
   }
 
-  function showEnteredValue(value) {
-    const enteredValue = fixEnteredValue(value)
+  function showEnteredValue(enteredValue) {
     const updatedEnteredValues =
       enteredValues[0] !== ERROR_RESULT
         ? enteredValues.concat(enteredValue)
@@ -50,13 +61,6 @@ export default function Calculator() {
 
     setPreviewResult(calcPreviewResult(updatedEnteredValues))
     setEnteredValues(updatedEnteredValues)
-
-    function fixEnteredValue(value) {
-      if (value === '×') value = '*'
-      else if (value === '÷') value = '/'
-
-      return value
-    }
   }
 
   function showResult() {
@@ -79,22 +83,22 @@ export default function Calculator() {
   function calcPreviewResult(enteredValues) {
     const lastEnteredValue = enteredValues[enteredValues.length - 1]
 
-    const isOperatorLastEnteredValue =
-      lastEnteredValue === '(' ||
-      lastEnteredValue === ')' ||
-      lastEnteredValue === '/' ||
-      lastEnteredValue === '*' ||
-      lastEnteredValue === '-' ||
-      lastEnteredValue === '+'
-
-    return !isOperatorLastEnteredValue ? calcResult(enteredValues) : ''
+    return !isMathOperator(lastEnteredValue) ? calcResult(enteredValues) : ''
   }
 
   function calcResult(enteredValues) {
     try {
-      return eval(enteredValues.join(''))
+      return eval(fixEnteredValues(enteredValues).join(''))
     } catch (e) {
       return ERROR_RESULT
+    }
+
+    function fixEnteredValues(values) {
+      return values.map((value) => {
+        if (value === MATH_OPERATORS.MULTIPLICATION) return '*'
+        else if (value === MATH_OPERATORS.DIVISION) return '/'
+        else return value
+      })
     }
   }
 
@@ -103,34 +107,70 @@ export default function Calculator() {
       <Screen previewResult={previewResult} result={enteredValues.join('')} />
       <div className='buttons'>
         <div className='buttons-line'>
-          <Button title='C' onClick={clearEnteredValues} isTopOperators={true} />
-          <Button title='(' onClick={showEnteredValue} isTopOperators={true} />
-          <Button title=')' onClick={showEnteredValue} isTopOperators={true} />
-          <Button title='DEL' onClick={deleteLastEnteredValue} isTopOperators={true} />
+          <Button
+            title={OPERATORS.CLEAR}
+            onClick={clearEnteredValues}
+            isTopOperators={true}
+          />
+          <Button
+            title={MATH_OPERATORS.OPENING_PARENTHESIS}
+            onClick={showEnteredValue}
+            isTopOperators={true}
+          />
+          <Button
+            title={MATH_OPERATORS.CLOSING_PARENTHESIS}
+            onClick={showEnteredValue}
+            isTopOperators={true}
+          />
+          <Button
+            title={OPERATORS.DELETE}
+            onClick={deleteLastEnteredValue}
+            isTopOperators={true}
+          />
         </div>
         <div className='buttons-line'>
           <Button title='7' onClick={showEnteredValue} isNumber={true} />
           <Button title='8' onClick={showEnteredValue} isNumber={true} />
           <Button title='9' onClick={showEnteredValue} isNumber={true} />
-          <Button title='÷' onClick={showEnteredValue} isRightSideOperators={true} />
+          <Button
+            title={MATH_OPERATORS.DIVISION}
+            onClick={showEnteredValue}
+            isRightSideOperators={true}
+          />
         </div>
         <div className='buttons-line'>
           <Button title='4' onClick={showEnteredValue} isNumber={true} />
           <Button title='5' onClick={showEnteredValue} isNumber={true} />
           <Button title='6' onClick={showEnteredValue} isNumber={true} />
-          <Button title='-' onClick={showEnteredValue} isRightSideOperators={true} />
+          <Button
+            title={MATH_OPERATORS.SUBSRTACTION}
+            onClick={showEnteredValue}
+            isRightSideOperators={true}
+          />
         </div>
         <div className='buttons-line'>
           <Button title='1' onClick={showEnteredValue} isNumber={true} />
           <Button title='2' onClick={showEnteredValue} isNumber={true} />
           <Button title='3' onClick={showEnteredValue} isNumber={true} />
-          <Button title='×' onClick={showEnteredValue} isRightSideOperators={true} />
+          <Button
+            title={MATH_OPERATORS.MULTIPLICATION}
+            onClick={showEnteredValue}
+            isRightSideOperators={true}
+          />
         </div>
         <div className='buttons-line'>
           <Button title='0' onClick={showEnteredValue} isNumber={true} />
-          <Button title='.' onClick={showEnteredValue} isNumber={true} />
-          <Button title='=' onClick={showResult} isNumber={true} />
-          <Button title='+' onClick={showEnteredValue} isRightSideOperators={true} />
+          <Button
+            title={OPERATORS.SEPARATOR}
+            onClick={showEnteredValue}
+            isNumber={true}
+          />
+          <Button title={OPERATORS.ASSIGNMENT} onClick={showResult} isNumber={true} />
+          <Button
+            title={MATH_OPERATORS.ADDITION}
+            onClick={showEnteredValue}
+            isRightSideOperators={true}
+          />
         </div>
       </div>
     </div>
