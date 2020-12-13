@@ -30,12 +30,6 @@
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-standard": "^20.0.0"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
