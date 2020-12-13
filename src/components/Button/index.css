@@ -2,9 +2,9 @@
   width: 90px;
   height: 75px;
   border: 0;
-  outline: none;    
-  font-size: 1rem;
   color: var(--font-color);
+  font-size: 1rem;
+  outline: none;
 }
 
 .button:hover {
@@ -27,6 +27,6 @@
 @media screen and (max-width: 720px) {
   .button {
     width: 25%;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 }
