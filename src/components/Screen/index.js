@@ -1,3 +1,5 @@
+import React from 'react'
+import PropTypes from 'prop-types'
 import './index.css'
 import DarkModeButton from './../DarkModeButton'
 
@@ -17,4 +19,9 @@ export default function Screen(props) {
       />
     </div>
   )
+}
+
+Screen.propTypes = {
+  previewResult: PropTypes.string,
+  result: PropTypes.string,
 }
