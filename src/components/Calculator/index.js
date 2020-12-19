@@ -7,7 +7,9 @@ const MATH_OPERATORS = {
   ADDITION: '+',
   SUBSRTACTION: '-',
   MULTIPLICATION: '×',
+  AlT_MULTIPLICATION: '*',
   DIVISION: '÷',
+  AlT_DIVISION: '/',
   OPENING_PARENTHESIS: '(',
   CLOSING_PARENTHESIS: ')',
 }
@@ -31,7 +33,7 @@ const isClearOperator = (value) => value === 'Escape'
 
 export default function Calculator() {
   const [previewResult, setPreviewResult] = useState('')
-  const [enteredValues, setEnteredValues] = useState([])
+  const [enteredValues, setEnteredValues] = useState('')
 
   useEffect(() => {
     const keyDownHandler = (e) => keyboardEntryHandler(e.key)
@@ -39,45 +41,54 @@ export default function Calculator() {
     return () => window.removeEventListener('keydown', keyDownHandler)
   }, [])
 
-  function keyboardEntryHandler(key) {
-    if (isNumber(key) || isMathOperator(key)) {
-      showEnteredValue(key)
-    } else if (isSeparator(key)) {
+  function keyboardEntryHandler(enteredValue) {
+    if (isNumber(enteredValue) || isMathOperator(enteredValue)) {
+      showEnteredValue(enteredValue)
+    } else if (isSeparator(enteredValue)) {
       showEnteredValue(OPERATORS.SEPARATOR)
-    } else if (isAssignmentOperator(key)) {
+    } else if (isAssignmentOperator(enteredValue)) {
       showResult()
-    } else if (isDeleteOperator(key)) {
+    } else if (isDeleteOperator(enteredValue)) {
       deleteLastEnteredValue()
-    } else if (isClearOperator(key)) {
+    } else if (isClearOperator(enteredValue)) {
       clearEnteredValues()
     }
   }
 
   function showEnteredValue(enteredValue) {
-    const updatedEnteredValues =
-      enteredValues[0] !== ERROR_RESULT
-        ? enteredValues.concat(enteredValue)
-        : [enteredValue]
+    setEnteredValues((enteredValues) => {
+      const updatedEnteredValues =
+        enteredValues !== ERROR_RESULT
+          ? enteredValues.concat(enteredValue)
+          : '' + enteredValue
 
-    setPreviewResult(calcPreviewResult(updatedEnteredValues))
-    setEnteredValues(updatedEnteredValues)
+      setPreviewResult(calcPreviewResult(updatedEnteredValues))
+
+      return updatedEnteredValues
+    })
   }
 
   function showResult() {
     setPreviewResult('')
-    setEnteredValues([calcResult(enteredValues)])
+    setEnteredValues((enteredValues) => calcResult(enteredValues))
   }
 
   function deleteLastEnteredValue() {
-    const updatedEnteredValues = enteredValues.slice(0, enteredValues.length - 1)
+    setEnteredValues((enteredValues) => {
+      const updatedEnteredValues =
+        enteredValues !== ERROR_RESULT
+          ? enteredValues.substring(0, enteredValues.length - 1)
+          : ''
 
-    setPreviewResult(calcPreviewResult(updatedEnteredValues))
-    setEnteredValues(updatedEnteredValues)
+      setPreviewResult(calcPreviewResult(updatedEnteredValues))
+
+      return updatedEnteredValues
+    })
   }
 
   function clearEnteredValues() {
     setPreviewResult('')
-    setEnteredValues([])
+    setEnteredValues('')
   }
 
   function calcPreviewResult(enteredValues) {
@@ -88,23 +99,21 @@ export default function Calculator() {
 
   function calcResult(enteredValues) {
     try {
-      return eval(fixEnteredValues(enteredValues).join(''))
+      return '' + (eval(fixEnteredValues(enteredValues)) || '')
     } catch (e) {
       return ERROR_RESULT
     }
 
     function fixEnteredValues(values) {
-      return values.map((value) => {
-        if (value === MATH_OPERATORS.MULTIPLICATION) return '*'
-        else if (value === MATH_OPERATORS.DIVISION) return '/'
-        else return value
-      })
+      return values
+        .replaceAll(MATH_OPERATORS.MULTIPLICATION, MATH_OPERATORS.AlT_MULTIPLICATION)
+        .replaceAll(MATH_OPERATORS.DIVISION, MATH_OPERATORS.AlT_DIVISION)
     }
   }
 
   return (
     <div className='calculator'>
-      <Screen previewResult={previewResult} result={enteredValues.join('')} />
+      <Screen previewResult={previewResult} result={enteredValues} />
       <div className='buttons'>
         <div className='buttons-line'>
           <Button
