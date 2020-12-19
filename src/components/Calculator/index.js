@@ -1,47 +1,29 @@
 import React, { useState, useEffect } from 'react'
+import { MATH_OPERATORS, OPERATORS, ERROR_RESULT } from './constants'
+import {
+  isNumber,
+  isSeparator,
+  isMathOperator,
+  isAssignmentOperator,
+  isDeleteOperator,
+  isClearOperator,
+} from './input-validator'
 import './index.css'
 import Screen from './../Screen'
 import Button from './../Button'
-
-const MATH_OPERATORS = {
-  ADDITION: '+',
-  SUBSRTACTION: '-',
-  MULTIPLICATION: '×',
-  AlT_MULTIPLICATION: '*',
-  DIVISION: '÷',
-  AlT_DIVISION: '/',
-  OPENING_PARENTHESIS: '(',
-  CLOSING_PARENTHESIS: ')',
-}
-
-const OPERATORS = {
-  ASSIGNMENT: '=',
-  SEPARATOR: '.',
-  CLEAR: 'C',
-  DELETE: 'DEL',
-}
-
-const ERROR_RESULT = 'Error'
-
-const isNumber = (value) => '0' <= value && value <= '9'
-const isSeparator = (value) => value === OPERATORS.SEPARATOR || value === ','
-const isMathOperator = (value) => Object.values(MATH_OPERATORS).includes(value)
-const isAssignmentOperator = (value) =>
-  value === OPERATORS.ASSIGNMENT || value === 'Enter'
-const isDeleteOperator = (value) => value === 'Backspace'
-const isClearOperator = (value) => value === 'Escape'
 
 export default function Calculator() {
   const [previewResult, setPreviewResult] = useState('')
   const [enteredValues, setEnteredValues] = useState('')
 
   useEffect(() => {
-    const keyDownHandler = (e) => keyboardEntryHandler(e.key)
+    const keyDownHandler = (e) => keyboardInputHandler(e.key)
     window.addEventListener('keydown', keyDownHandler)
     return () => window.removeEventListener('keydown', keyDownHandler)
   }, [])
 
-  function keyboardEntryHandler(enteredValue) {
+  function keyboardInputHandler(enteredValue) {
+    console.log(enteredValue, isAssignmentOperator(enteredValue))
     if (isNumber(enteredValue) || isMathOperator(enteredValue)) {
       showEnteredValue(enteredValue)
     } else if (isSeparator(enteredValue)) {
@@ -98,6 +80,7 @@ export default function Calculator() {
   }
 
   function calcResult(enteredValues) {
+    console.log(enteredValues)
     try {
       return '' + (eval(fixEnteredValues(enteredValues)) || '')
     } catch (e) {
