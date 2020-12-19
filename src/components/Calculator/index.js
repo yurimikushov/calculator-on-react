@@ -10,7 +10,9 @@ import {
 } from './input-validator'
 import './index.css'
 import Screen from './../Screen'
-import Button from './../Button'
+import TopOperator from '../Button/TopOperator'
+import Number from '../Button/Number'
+import RightSideOperator from '../Button/RightSideOperator'
 
 export default function Calculator() {
   const [previewResult, setPreviewResult] = useState('')
@@ -97,70 +99,46 @@ export default function Calculator() {
       <Screen previewResult={previewResult} result={enteredValues} />
       <div className='buttons'>
         <div className='buttons-line'>
-          <Button
-            title={OPERATORS.CLEAR}
-            onClick={clearEnteredValues}
-            isTopOperators={true}
-          />
-          <Button
+          <TopOperator title={OPERATORS.CLEAR} onClick={clearEnteredValues} />
+          <TopOperator
             title={MATH_OPERATORS.OPENING_PARENTHESIS}
             onClick={showEnteredValue}
-            isTopOperators={true}
           />
-          <Button
+          <TopOperator
             title={MATH_OPERATORS.CLOSING_PARENTHESIS}
             onClick={showEnteredValue}
-            isTopOperators={true}
           />
-          <Button
-            title={OPERATORS.DELETE}
-            onClick={deleteLastEnteredValue}
-            isTopOperators={true}
-          />
+          <TopOperator title={OPERATORS.DELETE} onClick={deleteLastEnteredValue} />
         </div>
         <div className='buttons-line'>
-          <Button title='7' onClick={showEnteredValue} isNumber={true} />
-          <Button title='8' onClick={showEnteredValue} isNumber={true} />
-          <Button title='9' onClick={showEnteredValue} isNumber={true} />
-          <Button
-            title={MATH_OPERATORS.DIVISION}
-            onClick={showEnteredValue}
-            isRightSideOperators={true}
-          />
+          <Number title='7' onClick={showEnteredValue} />
+          <Number title='8' onClick={showEnteredValue} />
+          <Number title='9' onClick={showEnteredValue} />
+          <RightSideOperator title={MATH_OPERATORS.DIVISION} onClick={showEnteredValue} />
         </div>
         <div className='buttons-line'>
-          <Button title='4' onClick={showEnteredValue} isNumber={true} />
-          <Button title='5' onClick={showEnteredValue} isNumber={true} />
-          <Button title='6' onClick={showEnteredValue} isNumber={true} />
-          <Button
+          <Number title='4' onClick={showEnteredValue} />
+          <Number title='5' onClick={showEnteredValue} />
+          <Number title='6' onClick={showEnteredValue} />
+          <RightSideOperator
             title={MATH_OPERATORS.SUBSRTACTION}
             onClick={showEnteredValue}
-            isRightSideOperators={true}
           />
         </div>
         <div className='buttons-line'>
-          <Button title='1' onClick={showEnteredValue} isNumber={true} />
-          <Button title='2' onClick={showEnteredValue} isNumber={true} />
-          <Button title='3' onClick={showEnteredValue} isNumber={true} />
-          <Button
+          <Number title='1' onClick={showEnteredValue} />
+          <Number title='2' onClick={showEnteredValue} />
+          <Number title='3' onClick={showEnteredValue} />
+          <RightSideOperator
             title={MATH_OPERATORS.MULTIPLICATION}
             onClick={showEnteredValue}
-            isRightSideOperators={true}
           />
         </div>
         <div className='buttons-line'>
-          <Button title='0' onClick={showEnteredValue} isNumber={true} />
-          <Button
-            title={OPERATORS.SEPARATOR}
-            onClick={showEnteredValue}
-            isNumber={true}
-          />
-          <Button title={OPERATORS.ASSIGNMENT} onClick={showResult} isNumber={true} />
-          <Button
-            title={MATH_OPERATORS.ADDITION}
-            onClick={showEnteredValue}
-            isRightSideOperators={true}
-          />
+          <Number title='0' onClick={showEnteredValue} />
+          <Number title={OPERATORS.SEPARATOR} onClick={showEnteredValue} />
+          <Number title={OPERATORS.ASSIGNMENT} onClick={showResult} />
+          <RightSideOperator title={MATH_OPERATORS.ADDITION} onClick={showEnteredValue} />
         </div>
       </div>
     </div>
