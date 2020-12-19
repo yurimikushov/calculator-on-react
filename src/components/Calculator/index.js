@@ -23,7 +23,6 @@ export default function Calculator() {
   }, [])
 
   function keyboardInputHandler(enteredValue) {
-    console.log(enteredValue, isAssignmentOperator(enteredValue))
     if (isNumber(enteredValue) || isMathOperator(enteredValue)) {
       showEnteredValue(enteredValue)
     } else if (isSeparator(enteredValue)) {
@@ -80,7 +79,6 @@ export default function Calculator() {
   }
 
   function calcResult(enteredValues) {
-    console.log(enteredValues)
     try {
       return '' + (eval(fixEnteredValues(enteredValues)) || '')
     } catch (e) {
