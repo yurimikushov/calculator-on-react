@@ -2,19 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './index.css'
 
-export default function Button(props) {
-  const className = 'button ' + props.className
-  const onClick = (e) => props.onClick(e.target.innerText)
-
+function Button({ title, onClick, className }) {
   return (
-    <button className={className} onClick={onClick}>
-      {props.title}
+    <button
+      className={'button ' + className}
+      onClick={(e) => onClick(e.target.innerText)}
+    >
+      {title}
     </button>
   )
 }
 
 Button.propTypes = {
+  title: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
-  onClick: PropTypes.func,
-  title: PropTypes.string,
 }
+
+export default Button

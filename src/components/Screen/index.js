@@ -3,17 +3,15 @@ import PropTypes from 'prop-types'
 import './index.css'
 import DarkModeButton from './../DarkModeButton'
 
-export default function Screen(props) {
+function Screen({ previewResult, result }) {
   return (
     <div className='screen'>
       <DarkModeButton />
-      <span className='screen__preview-result position_top-right'>
-        {props.previewResult}
-      </span>
+      <span className='screen__preview-result position_top-right'>{previewResult}</span>
       <input
         className='screen__result position_bottom'
         type='text'
-        value={props.result}
+        value={result}
         placeholder='0'
         readOnly
       />
@@ -22,6 +20,8 @@ export default function Screen(props) {
 }
 
 Screen.propTypes = {
-  previewResult: PropTypes.string,
-  result: PropTypes.string,
+  previewResult: PropTypes.string.isRequired,
+  result: PropTypes.string.isRequired,
 }
+
+export default Screen
