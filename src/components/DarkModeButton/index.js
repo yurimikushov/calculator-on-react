@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { THEME_NAME } from './constants'
+import { DARK_MODE_CLASS_NAME } from './../../constants'
 import './index.css'
-
-const THEME_NAME = {
-  LIGHT: 'light',
-  DARK: 'dark',
-}
 
 export default function DarkModeButton() {
   const [themeName, setThemeName] = useState(getThemeNameFromLocalStorage())
@@ -24,8 +21,6 @@ export default function DarkModeButton() {
   function getThemeNameFromLocalStorage() {
     return localStorage.getItem('themeName') || THEME_NAME.LIGHT
   }
-
-  const DARK_MODE_CLASS_NAME = 'theme_dark'
 
   if (themeName === THEME_NAME.DARK) {
     document.body.classList.add(DARK_MODE_CLASS_NAME)
