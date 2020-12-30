@@ -8,10 +8,12 @@ This is the simple calculator implementation on React.
 
 # Usage
 
-Installs all dependencies
+Installs the project
 
 ```
-npm install
+git clone https://github.com/yurimikushov/calculator-on-react.git
+cd calculator-on-react
+npm i
 ```
 
 Runs the app in `development` mode
