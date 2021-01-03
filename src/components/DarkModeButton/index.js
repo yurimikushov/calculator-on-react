@@ -36,7 +36,7 @@ function DarkModeButton({ classNames }) {
 
   return (
     <button className={className} onClick={toggleTheme}>
-      {themeName === THEME_NAME.LIGHT ? '☀️' : '🌙'}
+      {themeName === THEME_NAME.DARK ? '☀️' : '🌙'}
     </button>
   )
 }
