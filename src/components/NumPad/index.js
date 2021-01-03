@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { MATH_OPERATORS, OPERATORS } from './../../constants'
+import { MATH_OPERATORS, SERVISE_OPERATORS } from './../../constants'
 import './index.css'
 import TopOperator from '../Button/TopOperator'
 import Number from '../Button/Number'
@@ -15,7 +15,7 @@ function NumPad({
   return (
     <div className='number-pad'>
       <div className='number-pad__line'>
-        <TopOperator title={OPERATORS.CLEAR} onClick={clearEnteredValues} />
+        <TopOperator title={SERVISE_OPERATORS.CLEAR} onClick={clearEnteredValues} />
         <TopOperator
           title={MATH_OPERATORS.OPENING_PARENTHESIS}
           onClick={showEnteredValue}
@@ -24,7 +24,7 @@ function NumPad({
           title={MATH_OPERATORS.CLOSING_PARENTHESIS}
           onClick={showEnteredValue}
         />
-        <TopOperator title={OPERATORS.DELETE} onClick={deleteLastEnteredValue} />
+        <TopOperator title={SERVISE_OPERATORS.DELETE} onClick={deleteLastEnteredValue} />
       </div>
       <div className='number-pad__line'>
         <Number title='7' onClick={showEnteredValue} />
@@ -52,8 +52,8 @@ function NumPad({
       </div>
       <div className='number-pad__line'>
         <Number title='0' onClick={showEnteredValue} />
-        <Number title={OPERATORS.SEPARATOR} onClick={showEnteredValue} />
-        <Number title={OPERATORS.ASSIGNMENT} onClick={showResult} />
+        <Number title={SERVISE_OPERATORS.SEPARATOR} onClick={showEnteredValue} />
+        <Number title={SERVISE_OPERATORS.ASSIGNMENT} onClick={showResult} />
         <RightSideOperator title={MATH_OPERATORS.ADDITION} onClick={showEnteredValue} />
       </div>
     </div>

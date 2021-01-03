@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { MATH_OPERATORS, OPERATORS, ERROR_RESULT } from './../../constants'
+import { MATH_OPERATORS, SERVISE_OPERATORS, ERROR_RESULT } from './../../constants'
 import {
   isNumber,
   isSeparator,
@@ -26,7 +26,7 @@ export default function Calculator() {
     if (isNumber(enteredValue) || isMathOperator(enteredValue)) {
       showEnteredValue(enteredValue)
     } else if (isSeparator(enteredValue)) {
-      showEnteredValue(OPERATORS.SEPARATOR)
+      showEnteredValue(SERVISE_OPERATORS.SEPARATOR)
     } else if (isAssignmentOperator(enteredValue)) {
       showResult()
     } else if (isDeleteOperator(enteredValue)) {
