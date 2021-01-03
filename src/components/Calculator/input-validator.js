@@ -1,4 +1,4 @@
-import { MATH_OPERATORS, OPERATORS } from './constants'
+import { MATH_OPERATORS, OPERATORS } from './../../constants'
 
 export const isNumber = (value) => '0' <= value && value <= '9'
 export const isSeparator = (value) =>

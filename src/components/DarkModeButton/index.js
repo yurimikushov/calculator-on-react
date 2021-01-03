@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { THEME_NAME } from './constants'
-import { DARK_MODE_CLASS_NAME } from './../../constants'
+import { THEME_NAME, DARK_MODE_CLASS_NAME } from './../../constants'
 import './index.css'
 
 function DarkModeButton({ classNames }) {

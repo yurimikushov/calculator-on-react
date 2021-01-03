@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { MATH_OPERATORS, OPERATORS, ERROR_RESULT } from './constants'
+import { MATH_OPERATORS, OPERATORS, ERROR_RESULT } from './../../constants'
 import {
   isNumber,
   isSeparator,
@@ -10,9 +10,7 @@ import {
 } from './input-validator'
 import './index.css'
 import Screen from './../Screen'
-import TopOperator from '../Button/TopOperator'
-import Number from '../Button/Number'
-import RightSideOperator from '../Button/RightSideOperator'
+import NumPad from './../NumPad'
 
 export default function Calculator() {
   const [previewResult, setPreviewResult] = useState('')
@@ -97,50 +95,12 @@ export default function Calculator() {
   return (
     <div className='calculator'>
       <Screen previewResult={previewResult} result={enteredValues} />
-      <div className='buttons'>
-        <div className='buttons-line'>
-          <TopOperator title={OPERATORS.CLEAR} onClick={clearEnteredValues} />
-          <TopOperator
-            title={MATH_OPERATORS.OPENING_PARENTHESIS}
-            onClick={showEnteredValue}
-          />
-          <TopOperator
-            title={MATH_OPERATORS.CLOSING_PARENTHESIS}
-            onClick={showEnteredValue}
-          />
-          <TopOperator title={OPERATORS.DELETE} onClick={deleteLastEnteredValue} />
-        </div>
-        <div className='buttons-line'>
-          <Number title='7' onClick={showEnteredValue} />
-          <Number title='8' onClick={showEnteredValue} />
-          <Number title='9' onClick={showEnteredValue} />
-          <RightSideOperator title={MATH_OPERATORS.DIVISION} onClick={showEnteredValue} />
-        </div>
-        <div className='buttons-line'>
-          <Number title='4' onClick={showEnteredValue} />
-          <Number title='5' onClick={showEnteredValue} />
-          <Number title='6' onClick={showEnteredValue} />
-          <RightSideOperator
-            title={MATH_OPERATORS.SUBSRTACTION}
-            onClick={showEnteredValue}
-          />
-        </div>
-        <div className='buttons-line'>
-          <Number title='1' onClick={showEnteredValue} />
-          <Number title='2' onClick={showEnteredValue} />
-          <Number title='3' onClick={showEnteredValue} />
-          <RightSideOperator
-            title={MATH_OPERATORS.MULTIPLICATION}
-            onClick={showEnteredValue}
-          />
-        </div>
-        <div className='buttons-line'>
-          <Number title='0' onClick={showEnteredValue} />
-          <Number title={OPERATORS.SEPARATOR} onClick={showEnteredValue} />
-          <Number title={OPERATORS.ASSIGNMENT} onClick={showResult} />
-          <RightSideOperator title={MATH_OPERATORS.ADDITION} onClick={showEnteredValue} />
-        </div>
-      </div>
+      <NumPad
+        showEnteredValue={showEnteredValue}
+        showResult={showResult}
+        deleteLastEnteredValue={deleteLastEnteredValue}
+        clearEnteredValues={clearEnteredValues}
+      />
     </div>
   )
 }

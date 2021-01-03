@@ -7,20 +7,3 @@
   transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 720px) {
-  .buttons {
-    width: 400px;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .buttons {
-    width: 300px;
-  }
-}
-
-@media screen and (max-width: 300px) {
-  .buttons {
-    width: 250px;
-  }
-}

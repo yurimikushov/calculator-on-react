@@ -1,0 +1,70 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { MATH_OPERATORS, OPERATORS } from './../../constants'
+import './index.css'
+import TopOperator from '../Button/TopOperator'
+import Number from '../Button/Number'
+import RightSideOperator from '../Button/RightSideOperator'
+
+function NumPad({
+  showEnteredValue,
+  showResult,
+  deleteLastEnteredValue,
+  clearEnteredValues,
+}) {
+  return (
+    <div className='number-pad'>
+      <div className='number-pad__line'>
+        <TopOperator title={OPERATORS.CLEAR} onClick={clearEnteredValues} />
+        <TopOperator
+          title={MATH_OPERATORS.OPENING_PARENTHESIS}
+          onClick={showEnteredValue}
+        />
+        <TopOperator
+          title={MATH_OPERATORS.CLOSING_PARENTHESIS}
+          onClick={showEnteredValue}
+        />
+        <TopOperator title={OPERATORS.DELETE} onClick={deleteLastEnteredValue} />
+      </div>
+      <div className='number-pad__line'>
+        <Number title='7' onClick={showEnteredValue} />
+        <Number title='8' onClick={showEnteredValue} />
+        <Number title='9' onClick={showEnteredValue} />
+        <RightSideOperator title={MATH_OPERATORS.DIVISION} onClick={showEnteredValue} />
+      </div>
+      <div className='number-pad__line'>
+        <Number title='4' onClick={showEnteredValue} />
+        <Number title='5' onClick={showEnteredValue} />
+        <Number title='6' onClick={showEnteredValue} />
+        <RightSideOperator
+          title={MATH_OPERATORS.SUBSRTACTION}
+          onClick={showEnteredValue}
+        />
+      </div>
+      <div className='number-pad__line'>
+        <Number title='1' onClick={showEnteredValue} />
+        <Number title='2' onClick={showEnteredValue} />
+        <Number title='3' onClick={showEnteredValue} />
+        <RightSideOperator
+          title={MATH_OPERATORS.MULTIPLICATION}
+          onClick={showEnteredValue}
+        />
+      </div>
+      <div className='number-pad__line'>
+        <Number title='0' onClick={showEnteredValue} />
+        <Number title={OPERATORS.SEPARATOR} onClick={showEnteredValue} />
+        <Number title={OPERATORS.ASSIGNMENT} onClick={showResult} />
+        <RightSideOperator title={MATH_OPERATORS.ADDITION} onClick={showEnteredValue} />
+      </div>
+    </div>
+  )
+}
+
+NumPad.propTypes = {
+  showEnteredValue: PropTypes.func.isRequired,
+  showResult: PropTypes.func.isRequired,
+  deleteLastEnteredValue: PropTypes.func.isRequired,
+  clearEnteredValues: PropTypes.func.isRequired,
+}
+
+export default NumPad
