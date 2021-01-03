@@ -8,7 +8,6 @@
 
 .screen__preview-result {
   width: calc(100% - 60px);
-  padding: 10px 10px 0 50px;
   border: 0;
   color: var(--font-color);
   font-size: 1rem;
