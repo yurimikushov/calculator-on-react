@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from 'react'
-import reducer, { ACTION_TYPE as CALC_ACTION_TYPE } from './reducer' 
+import reducer, { ACTION_TYPE as CALC_ACTION_TYPE } from './reducer'
 import {
   isNumber,
   isSeparator,
@@ -8,7 +8,7 @@ import {
   isDeleteOperator,
   isClearOperator,
 } from './input-validator'
-import { SERVISE_OPERATORS } from './../../constants'
+import { SERVISE_OPERATOR } from './../../constants'
 import './index.css'
 import Screen from './../Screen'
 import NumPad from './../NumPad'
@@ -26,7 +26,7 @@ export default function Calculator() {
     if (isNumber(enteredValue) || isMathOperator(enteredValue)) {
       showEnteredValue(enteredValue)
     } else if (isSeparator(enteredValue)) {
-      showEnteredValue(SERVISE_OPERATORS.SEPARATOR)
+      showEnteredValue(SERVISE_OPERATOR.SEPARATOR)
     } else if (isAssignmentOperator(enteredValue)) {
       showResult()
     } else if (isDeleteOperator(enteredValue)) {

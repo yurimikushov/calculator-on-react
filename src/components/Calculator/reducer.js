@@ -1,4 +1,4 @@
-import { MATH_OPERATORS, ERROR_RESULT } from './../../constants'
+import { MATH_OPERATOR, ERROR_RESULT } from './../../constants'
 import { isMathOperator } from './input-validator'
 
 export const ACTION_TYPE = {
@@ -62,7 +62,7 @@ function calcResult(enteredValues) {
 
   function fixEnteredValues(values) {
     return values
-      .replaceAll(MATH_OPERATORS.MULTIPLICATION, MATH_OPERATORS.AlT_MULTIPLICATION)
-      .replaceAll(MATH_OPERATORS.DIVISION, MATH_OPERATORS.AlT_DIVISION)
+      .replaceAll(MATH_OPERATOR.MULTIPLICATION, MATH_OPERATOR.AlT_MULTIPLICATION)
+      .replaceAll(MATH_OPERATOR.DIVISION, MATH_OPERATOR.AlT_DIVISION)
   }
 }

@@ -5,7 +5,7 @@ export const THEME_NAME = {
   DARK: 'dark',
 }
 
-export const MATH_OPERATORS = {
+export const MATH_OPERATOR = {
   ADDITION: '+',
   SUBSRTACTION: '-',
   MULTIPLICATION: '×',
@@ -16,7 +16,7 @@ export const MATH_OPERATORS = {
   CLOSING_PARENTHESIS: ')',
 }
 
-export const SERVISE_OPERATORS = {
+export const SERVISE_OPERATOR = {
   ASSIGNMENT: '=',
   SEPARATOR: '.',
   ALT_SEPARATOR: ',',
