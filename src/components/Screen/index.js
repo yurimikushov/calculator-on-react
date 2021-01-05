@@ -6,7 +6,7 @@ import DarkModeButton from './../DarkModeButton'
 function Screen({ previewResult, result }) {
   return (
     <div className='screen'>
-      <DarkModeButton classNames='position_top-left pt-10 pl-10' />
+      <DarkModeButton className='position_top-left pt-10 pl-10' />
       <span className='screen__preview-result position_top-right pt-10 pr-10 pl-50'>
         {previewResult}
       </span>
