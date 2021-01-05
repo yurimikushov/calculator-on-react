@@ -2,9 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { MATH_OPERATOR, SERVISE_OPERATOR } from './../../constants'
 import './index.css'
-import TopOperator from '../Button/TopOperator'
-import Number from '../Button/Number'
-import RightSideOperator from '../Button/RightSideOperator'
+import { TopOperator, Number, RightSideOperator } from '../Button'
 
 function NumPad({
   showEnteredValue,
