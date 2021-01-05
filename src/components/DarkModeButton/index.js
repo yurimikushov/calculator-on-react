@@ -1,32 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import { THEME_NAME, DARK_MODE_CLASS_NAME } from './../../constants'
 import './index.css'
+import { ThemeContext, THEME_NAME } from './../../theme'
 
 function DarkModeButton({ classNames }) {
-  const [themeName, setThemeName] = useState(getThemeNameFromLocalStorage())
-
-  useEffect(() => {
-    setThemeNameInLocalStorage(themeName)
-  }, [themeName])
-
-  function toggleTheme() {
-    setThemeName(themeName === THEME_NAME.LIGHT ? THEME_NAME.DARK : THEME_NAME.LIGHT)
-  }
-
-  function setThemeNameInLocalStorage(themeName) {
-    localStorage.setItem('themeName', themeName)
-  }
-
-  function getThemeNameFromLocalStorage() {
-    return localStorage.getItem('themeName') || THEME_NAME.LIGHT
-  }
-
-  if (themeName === THEME_NAME.DARK) {
-    document.body.classList.add(DARK_MODE_CLASS_NAME)
-  } else {
-    document.body.classList.remove(DARK_MODE_CLASS_NAME)
-  }
+  const theme = useContext(ThemeContext)
 
   let className = 'dark-mode-button'
 
@@ -35,8 +13,8 @@ function DarkModeButton({ classNames }) {
   }
 
   return (
-    <button className={className} onClick={toggleTheme}>
-      {themeName === THEME_NAME.DARK ? '☀️' : '🌙'}
+    <button className={className} onClick={theme.toggle}>
+      {theme.name === THEME_NAME.DARK ? '☀️' : '🌙'}
     </button>
   )
 }
