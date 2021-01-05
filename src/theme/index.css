@@ -1,4 +1,14 @@
-.dark_theme {
+html[data-theme='light'] {
+  --bg-color: #f4f4f4;
+  --calc-bg-color: #000;
+  --calc-screen-bg-color: #fff;
+  --top-operator-button-bg-color: #f8f8f8;
+  --num-button-bg-color: #fff;
+  --right-side-operator-button-bg-color: #f27200;
+  --font-color: #000;
+}
+
+html[data-theme='dark'] {
   --bg-color: #1f2022;
   --calc-bg-color: #fff;
   --calc-screen-bg-color: #262626;

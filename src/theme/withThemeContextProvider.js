@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
 import ThemeContext from './ThemeContext'
-import { THEME_NAME, THEME_CLASS_NAME } from './constants'
+import { THEME_NAME } from './constants'
 
 function withThemeContextProvider(WrappedComponent) {
   return function ThemeContextProvider(props) {
@@ -10,12 +10,7 @@ function withThemeContextProvider(WrappedComponent) {
     )
 
     useEffect(() => {
-      if (themeName === THEME_NAME.DARK) {
-        document.body.classList.add(THEME_CLASS_NAME.DARK)
-      } else {
-        document.body.classList.remove(THEME_CLASS_NAME.DARK)
-      }
-
+      setThemeNameInHtmlDataset(themeName)
       setThemeNameInLocalStorage(themeName)
     }, [themeName])
 
@@ -23,6 +18,10 @@ function withThemeContextProvider(WrappedComponent) {
       setThemeName((themeName) =>
         themeName === THEME_NAME.LIGHT ? THEME_NAME.DARK : THEME_NAME.LIGHT
       )
+    }
+
+    function setThemeNameInHtmlDataset(themeName) {
+      document.querySelector('html').dataset['theme'] = themeName
     }
 
     function setThemeNameInLocalStorage(themeName) {
