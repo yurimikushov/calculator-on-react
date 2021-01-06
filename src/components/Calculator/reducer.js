@@ -1,5 +1,5 @@
-import { MATH_OPERATOR, ERROR_RESULT } from './../../constants'
-import { isMathOperator } from './input-validator'
+import { calcPreviewResult, calcResult } from './calculate-result'
+import { ERROR_RESULT } from './../../constants'
 
 export const ACTION_TYPE = {
   SHOW_ENTERED_VALUE: 'ShowEnteredValue',
@@ -44,25 +44,5 @@ export default function reducer(state, action) {
       }
     default:
       throw new Error()
-  }
-}
-
-function calcPreviewResult(enteredValues) {
-  const lastEnteredValue = enteredValues[enteredValues.length - 1]
-
-  return !isMathOperator(lastEnteredValue) ? calcResult(enteredValues) : ''
-}
-
-function calcResult(enteredValues) {
-  try {
-    return '' + (eval(fixEnteredValues(enteredValues)) || '')
-  } catch (e) {
-    return ERROR_RESULT
-  }
-
-  function fixEnteredValues(values) {
-    return values
-      .replaceAll(MATH_OPERATOR.MULTIPLICATION, MATH_OPERATOR.AlT_MULTIPLICATION)
-      .replaceAll(MATH_OPERATOR.DIVISION, MATH_OPERATOR.AlT_DIVISION)
   }
 }
