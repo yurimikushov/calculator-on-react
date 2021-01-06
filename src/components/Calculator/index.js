@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect } from 'react'
+import './index.css'
 import reducer, { ACTION_TYPE as CALC_ACTION_TYPE } from './reducer'
 import {
   isNumber,
@@ -9,7 +10,6 @@ import {
   isClearOperator,
 } from './input-validator'
 import { SERVISE_OPERATOR } from './../../constants'
-import './index.css'
 import Screen from './../Screen'
 import NumPad from './../NumPad'
 
