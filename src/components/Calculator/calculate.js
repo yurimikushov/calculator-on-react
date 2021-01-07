@@ -1,5 +1,5 @@
 import { isMathOperator } from './input-validator'
-import { MATH_OPERATOR, ERROR_RESULT } from './../../constants'
+import { MATH_OPERATOR, ERROR_RESULT } from '../../constants'
 
 export function calcPreviewResult(enteredValues) {
   const lastEnteredValue = enteredValues[enteredValues.length - 1]

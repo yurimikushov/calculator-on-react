@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from 'react'
 import './index.css'
-import reducer, { ACTION_TYPE as CALC_ACTION_TYPE } from './reducer'
+import reducer from './reducer'
+import ACTION_TYPE from './action-types'
 import {
   isNumber,
   isSeparator,
@@ -37,19 +38,19 @@ export default function Calculator() {
   }
 
   function showEnteredValue(enteredValue) {
-    dispatch({ type: CALC_ACTION_TYPE.SHOW_ENTERED_VALUE, enteredValue })
+    dispatch({ type: ACTION_TYPE.SHOW_ENTERED_VALUE, enteredValue })
   }
 
   function showResult() {
-    dispatch({ type: CALC_ACTION_TYPE.SHOW_RESULT })
+    dispatch({ type: ACTION_TYPE.SHOW_RESULT })
   }
 
   function deleteLastEnteredValue() {
-    dispatch({ type: CALC_ACTION_TYPE.DELETE_LAST_ENTERED_VALUE })
+    dispatch({ type: ACTION_TYPE.DELETE_LAST_ENTERED_VALUE })
   }
 
   function clearEnteredValues() {
-    dispatch({ type: CALC_ACTION_TYPE.CLEAR_ENTERED_VALUES })
+    dispatch({ type: ACTION_TYPE.CLEAR_ENTERED_VALUES })
   }
 
   return (
