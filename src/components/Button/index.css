@@ -2,7 +2,7 @@
   width: 25%;
   height: 100%;
   border: 0;
-  color: var(--font-color);
+  color: var(--color-text);
   font-size: 1rem;
   outline: none;
 }
@@ -12,14 +12,14 @@
 }
 
 .button_top-operators {
-  background-color: var(--top-operator-button-bg-color);
+  background-color: var(--color-btn-bg-1);
 }
 
 .button_numbers {
-  background-color: var(--num-button-bg-color);
+  background-color: var(--color-btn-bg-2);
 }
 
 .button_right-side-operators {
-  background-color: var(--right-side-operator-button-bg-color);
+  background-color: var(--color-btn-bg-3);
   color: #fff;
 }

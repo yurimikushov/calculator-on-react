@@ -1,18 +1,19 @@
-html[data-theme='light'] {
-  --bg-color: #f4f4f4;
-  --calc-bg-color: #000;
-  --calc-screen-bg-color: #fff;
-  --top-operator-button-bg-color: #f8f8f8;
-  --num-button-bg-color: #fff;
-  --right-side-operator-button-bg-color: #f27200;
-  --font-color: #000;
+[data-theme='light'] {
+  --color-body-bg: #f4f4f4;
+  --color-calculator-bg: #000;
+  --color-calculator-screen-bg: #fff;
+  --color-btn-bg-1: #f8f8f8;
+  --color-btn-bg-2: #fff;
+  --color-btn-bg-3: #f27200;
+  --color-text: #000;
 }
 
-html[data-theme='dark'] {
-  --bg-color: #1f2022;
-  --calc-bg-color: #fff;
-  --calc-screen-bg-color: #262626;
-  --top-operator-button-bg-color: #424242;
-  --num-button-bg-color: #262626;
-  --font-color: #fff;
+[data-theme='dark'] {
+  --color-body-bg: #1f2022;
+  --color-calculator-bg: #fff;
+  --color-calculator-screen-bg: #262626;
+  --color-btn-bg-1: #424242;
+  --color-btn-bg-2: #262626;
+  --color-btn-bg-3: #f27200;
+  --color-text: #fff;
 }

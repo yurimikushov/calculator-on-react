@@ -4,13 +4,13 @@
 }
 
 :root {
-  --bg-color: #f4f4f4;
-  --calc-bg-color: #000;
-  --calc-screen-bg-color: #fff;
-  --top-operator-button-bg-color: #f8f8f8;
-  --num-button-bg-color: #fff;
-  --right-side-operator-button-bg-color: #f27200;
-  --font-color: #000;
+  --color-body-bg: #f4f4f4;
+  --color-calculator-bg: #000;
+  --color-calculator-screen-bg: #fff;
+  --color-btn-bg-1: #f8f8f8;
+  --color-btn-bg-2: #fff;
+  --color-btn-bg-3: #f27200;
+  --color-text: #000;
   --font-size: 30px;
 }
 
@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--color-body-bg);
 }
 
 @media screen and (max-width: 576px) {

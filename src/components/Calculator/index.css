@@ -4,7 +4,7 @@
   left: 50%;
   width: 360px;
   height: 500px;
-  background-color: var(--calc-bg-color);
+  background-color: var(--color-calculator-bg);
   box-shadow: 0 0 20px 5px #00000024;
   transform: translate(-50%, -50%);
 }

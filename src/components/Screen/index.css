@@ -2,14 +2,14 @@
   position: relative;
   width: 100%;
   height: 125px;
-  background-color: var(--calc-screen-bg-color);
+  background-color: var(--color-calculator-screen-bg);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .screen__preview-result {
   width: calc(100% - 60px);
   border: 0;
-  color: var(--font-color);
+  color: var(--color-text);
   font-size: 1rem;
   opacity: 0.6;
   outline: none;
@@ -21,7 +21,7 @@
   padding: 0 10px;
   border: 0;
   background-color: inherit;
-  color: var(--font-color);
+  color: var(--color-text);
   font-size: 1.4rem;
   outline: none;
   text-align: right;
