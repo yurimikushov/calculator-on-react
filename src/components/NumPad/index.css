@@ -1,17 +1,9 @@
-@media screen and (max-width: 720px) {
-  .number-pad {
-    width: 400px;
-  }
+.number-pad {
+  width: 100%;
+  height: 75%;
 }
 
-@media screen and (max-width: 576px) {
-  .number-pad {
-    width: 300px;
-  }
-}
-
-@media screen and (max-width: 300px) {
-  .number-pad {
-    width: 250px;
-  }
+.number-pad__line {
+  width: 100%;
+  height: 20%;
 }
