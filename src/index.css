@@ -21,3 +21,15 @@ html {
 body {
   background-color: var(--bg-color);
 }
+
+@media screen and (max-width: 576px) {
+  :root {
+    --font-size: 27px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  :root {
+    --font-size: 25px;
+  }
+}
